@@ -1,0 +1,94 @@
+﻿@model FKM_Diagnostic_Center.User
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Create New Employee</h2>
+@using (Html.BeginForm(null, null, FormMethod.Post, new { name = "myForm", id = "myForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <div class="editor-label">
+            <p>User Name</p>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.username)
+            @Html.ValidationMessageFor(model => model.username)
+            <span id="msg1" style="color:red"></span>
+        </div>
+
+        <div class="editor-label">
+            <p>Password</p>
+        </div>
+        <div class="editor-field">
+            @Html.PasswordFor(model => model.password)
+            @Html.ValidationMessageFor(model => model.password)
+            <span id="msg2" style="color:red"></span>
+        </div>
+
+        <div class="editor-label">
+            <p>Email</p>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.email)
+            @Html.ValidationMessageFor(model => model.email)
+            <span id="msg3" style="color:red"></span>
+        </div>
+
+        <div class="editor-label">
+            <p>Address</p>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.address)
+            @Html.ValidationMessageFor(model => model.address)
+            <span id="msg4" style="color:red"></span>
+        </div>
+
+        <div class="editor-label">
+            <p>Phone Number</p>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.phone)
+            @Html.ValidationMessageFor(model => model.phone)
+            <span id="msg5" style="color:red"></span>
+        </div>
+
+        <div class="editor-label">
+            <p>User Type</p>
+        </div>
+        <div class="editor-field">
+            @{
+    List<SelectListItem> listItems = new List<SelectListItem>();
+    listItems.Add(new SelectListItem
+         {
+             Text = "Admin",
+             Value = "admin"
+         });
+    listItems.Add(new SelectListItem
+         {
+             Text = "Employee",
+             Value = "employee",
+         });
+            }
+
+            @Html.DropDownListFor(model => model.type, listItems)
+            <span id="msg6" style="color:red"></span>
+        </div>
+
+        <p>
+            <input type="button" id="button1" value="Create" onclick="validateUser()" />
+        </p>
+
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List", "User")
+</div>
+

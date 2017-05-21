@@ -1,0 +1,67 @@
+﻿@model FKM_Diagnostic_Center.Patient
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm(null, null, FormMethod.Post, new { name = "myForm", id = "myForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        <p>Patient Name</p>
+
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PName)
+            @Html.ValidationMessageFor(model => model.PName)
+            <span id="msg1" style="color:red"> </span>
+        </div>
+
+        <div class="editor-label">
+            <p>Address</p>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PAddress)
+            @Html.ValidationMessageFor(model => model.PAddress)
+            <span id="msg2" style="color:red"> </span>
+        </div>
+
+        <div class="editor-label">
+            <p>Age</p>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PAge)
+            @Html.ValidationMessageFor(model => model.PAge)
+            <span id="msg3" style="color:red"> </span>
+        </div>
+
+        <div class="editor-label">
+            <p>Phone</p>
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PPhone)
+            @Html.ValidationMessageFor(model => model.PPhone)
+            <span id="msg4" style="color:red"> </span>
+        </div>
+        <div class="editor-label">
+            <p>Test Name</p>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.testId, (SelectList)@ViewBag.Tests, "Select a test")
+            <span id="msg5" style="color:red"> </span>
+        </div>
+        <p>
+            <input type="button" id="button1" value="Save" onclick="validatePatient()" />
+            @*<input type="submit" value="Create" />*@
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

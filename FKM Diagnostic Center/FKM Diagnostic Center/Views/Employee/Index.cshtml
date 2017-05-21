@@ -1,0 +1,85 @@
+﻿@model IEnumerable<FKM_Diagnostic_Center.Patient>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Patient List</title>
+</head>
+<body>
+    <h1>Patient List</h1>
+
+    @using (Html.BeginForm("Search", "Employee", FormMethod.Post))
+    {
+        <span>Patient Name</span> @Html.TextBox("names")
+        <input type="submit" value="Search" class="searchButton" />
+    }
+
+    <br />
+    <br />
+
+    <p>
+        @Html.ActionLink("Add New Patient", "Create")
+    </p>
+    <table border="1">
+        <tr>
+            <th>
+                <p>Patient Name</p>
+            </th>
+            <th>
+                <p>Phone</p>
+            </th>
+            <th>
+                <p>Test Name</p>
+            </th>
+            <th>
+                <p>Test Bill</p>
+            </th>
+            <th>Options</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PPhone)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Test.testName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Test.testBill)
+                </td>
+
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PId })
+                </td>
+            </tr>
+        }
+    </table>
+
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+    $(function () {
+        $('#names').autocomplete({
+            source: '/Search',
+            minLength: 2
+        });
+    });
+</script>

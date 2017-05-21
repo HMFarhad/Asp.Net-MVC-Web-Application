@@ -1,0 +1,35 @@
+﻿@model FKM_Diagnostic_Center.Patient
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Test Report</h1>
+<div class="display-field">
+    <h3>Name: @Html.DisplayFor(model => model.PName)</h3>
+</div>
+
+<fieldset>
+    <legend></legend>
+
+    <div class="display-label">
+        <p>Address :  @Html.DisplayFor(model => model.PAddress)</p>
+    </div>
+    <div class="display-label">
+        <p>Age: @Html.DisplayFor(model => model.PAge)</p>
+    </div>
+    <div class="display-label">
+        <p>Phone Number :@Html.DisplayFor(model => model.PPhone)</p>
+    </div>
+    <div class="display-label">
+        <p>Assign Date: @Html.DisplayFor(model => model.PDate)</p>
+    </div>
+    <div class="display-label">
+        <p>Test Name :@Html.DisplayFor(model => model.Test.testName)</p>
+    </div>
+    <div class="display-label">
+        <p>Bill :@Html.DisplayFor(model => model.Test.testBill)</p>
+    </div>
+
+</fieldset>

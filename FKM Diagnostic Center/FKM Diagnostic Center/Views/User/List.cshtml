@@ -1,0 +1,59 @@
+﻿@model IEnumerable<FKM_Diagnostic_Center.User>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Employee List</h2>
+<br />
+<br />
+<br />
+<p>
+    @Html.ActionLink("Add New Employee", "Create")
+</p>
+<table border="1">
+    <tr>
+        <th>
+            <p>User Name</p>
+        </th>
+        <th>
+           <p>Email</p>
+        </th>
+        <th>
+           <p>Address</p>
+        </th>
+        <th>
+           <p>Phone Number</p>
+        </th>
+        <th>
+           <p>User Type</p>
+        </th>
+        <th>Options</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
+

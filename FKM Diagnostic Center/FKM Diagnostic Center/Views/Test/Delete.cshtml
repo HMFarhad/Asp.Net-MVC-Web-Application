@@ -1,0 +1,30 @@
+﻿@model FKM_Diagnostic_Center.Test
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Are you sure you want to delete </h2>
+<div class="display-field">
+    <h2>@Html.DisplayFor(model => model.testName)</h2>
+</div>
+<fieldset>
+    <legend></legend>
+
+    <div class="display-field">
+        <p> Bill: @Html.DisplayFor(model => model.testBill)</p>
+    </div>
+
+
+    <div class="display-field">
+        <p>Create Date :@Html.DisplayFor(model => model.testDate)</p>
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

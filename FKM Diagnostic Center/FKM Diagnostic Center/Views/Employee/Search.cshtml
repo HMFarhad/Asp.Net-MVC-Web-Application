@@ -1,0 +1,51 @@
+﻿@model FKM_Diagnostic_Center.Patient
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+
+<h2>Search Result</h2>
+
+<table border="1">
+    <tr>
+        <th>
+            <p>Patient Name</p>
+        </th>
+        <th>
+            <p>Phone</p>
+        </th>
+        <th>
+            <p>Test Name</p>
+        </th>
+        <th>
+            <p>Test Bill</p>
+        </th>
+        <th>Options</th>
+    </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.PName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.PPhone)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Test.testName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Test.testBill)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.PId }) |
+            @Html.ActionLink("Details", "Details", new { id = Model.PId })
+            
+        </td>
+    </tr>
+
+</table>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

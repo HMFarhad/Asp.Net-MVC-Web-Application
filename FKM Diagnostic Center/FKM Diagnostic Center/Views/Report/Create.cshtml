@@ -1,0 +1,29 @@
+﻿@model FKM_Diagnostic_Center.Patient
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Test Report</legend>
+
+        <div class="editor-label">
+            <p>Test Name</p>
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(model => model.testId, (SelectList)@ViewBag.Tests, "Select a test")
+        </div>
+        <img src="~/Style/img/under_construction.gif" width="600" height="400" />
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

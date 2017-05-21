@@ -1,0 +1,42 @@
+﻿@model IEnumerable<FKM_Diagnostic_Center.Test>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>List of Test</h2>
+<br />
+<br />
+<br />
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table border="1">
+    <tr>
+        <th>
+            <p>Name Of Test</p>
+        </th>
+        <th>
+            <p>Cost</p>
+        </th>
+        <th><p>Options</p></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.testName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.testBill)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.testId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.testId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.testId })
+        </td>
+    </tr>
+}
+
+</table>

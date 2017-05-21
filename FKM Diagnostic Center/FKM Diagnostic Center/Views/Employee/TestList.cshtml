@@ -1,0 +1,37 @@
+﻿@model IEnumerable<FKM_Diagnostic_Center.Test>
+
+@{
+    ViewBag.Title = "TestList";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<h2>TestList</h2>
+
+<p>
+    
+</p>
+<table border="1">
+    <tr>
+        <th>
+           <p>Name Of Test</p>
+        </th>
+        <th>
+            <p>Cost</p>
+        </th>
+        <th><p>Options</p></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.testName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.testBill)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "TestDetails", new { id=item.testId })
+    </tr>
+}
+
+</table>

@@ -1,0 +1,27 @@
+﻿@model FKM_Diagnostic_Center.Test
+
+@{
+    ViewBag.Title = "TestDetails";
+    Layout = "~/Views/Shared/_EmployeeLayout.cshtml";
+}
+
+<h2>TestDetails</h2>
+
+<h2>Details about</h2>
+<div class="display-field">
+    <h2>@Html.DisplayFor(model => model.testName)</h2>
+</div>
+<fieldset>
+    <legend></legend>
+
+    <div class="display-field">
+        <p> Bill: @Html.DisplayFor(model => model.testBill)</p>
+    </div>
+
+
+    <div class="display-field">
+        <p>Create Date :@Html.DisplayFor(model => model.testDate)</p>
+    </div>
+</fieldset><p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

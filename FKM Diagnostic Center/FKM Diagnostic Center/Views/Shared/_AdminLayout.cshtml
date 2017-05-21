@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dashbord</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Kabir">
+    <!-- The styles -->
+    <style type="text/css"></style>
+    <link id="bs-css" href="~/Style/css/bootstrap-cerulean.css" rel="stylesheet">
+    <link href="~/Style/css/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/Style/css/diagonistic-app.css" rel="stylesheet">
+   
+    <!-- jQuery -->
+
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+ 
+    <script src="~/Style/js/jquery-1.7.2.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Style/js/jquery-ui-1.8.21.custom.min.js"></script>
+    <!-- transition / effect library -->
+    <script src="~/Style/js/bootstrap-transition.js"></script>
+    <!-- alert enhancer library -->
+    <script src="js/bootstrap-alert.js"></script>
+    <!-- modal / dialog library -->
+    <script src="~/Style/js/bootstrap-modal.js"></script>
+    <!-- custom dropdown library -->
+    <script src="~/Style/js/bootstrap-dropdown.js"></script>
+    <!-- button enhancer library -->
+    <script src="~/Style/js/bootstrap-button.js"></script>
+    <!-- accordion library (optional, not used in demo) -->
+    <script src="~/Style/js/bootstrap-collapse.js"></script>
+    <!-- carousel slideshow library (optional, not used in demo) -->
+    <script src="~/Style/js/bootstrap-carousel.js"></script>
+    <!-- autocomplete library -->
+    <script src="~/Style/js/bootstrap-typeahead.js"></script>
+    <!----------------------------------------------------->
+    <script src="~/Scripts/patientValidate.js"></script>
+    <script src="~/Scripts/TestValidate.js"></script>
+    <script src="~/Scripts/UserValidate.js"></script>
+
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js"></script>
+
+
+</head>
+<body>
+    <!-- topbar starts -->
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".top-nav.nav-collapse,.sidebar-nav.nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#"><span>FKMA Diagnostic Center</span></a>
+                <!-- user dropdown starts -->
+                <div class="btn-group pull-right">
+                    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+                        @if (Request.IsAuthenticated)
+                        {
+                            <i class="icon-user"></i><span class="hidden-phone"> @User.Identity.Name</span>
+                        }
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="divider"></li>
+                        <li>>@Html.ActionLink("Logout", "Index", "User")</li>
+                    </ul>
+                </div>
+                <!-- user dropdown ends -->
+            </div>
+        </div>
+    </div>
+    <!-- topbar ends -->
+    <div class="container-fluid">
+        <div class="row-fluid">
+
+            <!-- left menu starts -->
+            <div class="span2 main-menu-span">
+                <div class="well nav-collapse sidebar-nav">
+                    <ul class="nav nav-tabs nav-stacked main-menu">
+                        <li class="nav-header hidden-tablet">Menu</li>
+                        <li><a class="ajax-link" href="#"><i class="icon-home"></i><span class="hidden-tablet"> Dashboard</span></a></li>
+                        <li><a class="ajax-link" href="/Patient/Index"><i class="icon-edit"></i><span class="hidden-tablet">Patients</span></a></li>
+                        <li><a class="ajax-link" href="/Test/Index"><i class="icon-edit"></i><span class="hidden-tablet">Test</span></a></li>
+                        <li><a class="ajax-link" href="/User/List"><i class="icon-edit"></i><span class="hidden-tablet">Employee</span></a></li>
+                        <li><a class="ajax-link" href="/Report/Index"><i class="icon-edit"></i><span class="hidden-tablet">Reports</span></a></li>
+                    </ul>
+                </div><!--/.well -->
+            </div><!--/span-->
+            <!-- left menu ends -->
+
+
+            <div id="content" class="span10">
+                <!-- content starts -->
+                @RenderBody()
+                <!-- content ends -->
+            </div><!--/#content.span10-->
+        </div><!--/fluid-row-->
+
+        <hr>
+        <footer>
+            <p class="pull-left">&copy; <a href="#" target="_blank">Null Point</a> 2016</p>
+            <p class="pull-right">Powered by: <a href="http://kkabir.net16.net/">Kabir,</a><a href="#"> Malik,</a><a href="#"> Farhad,</a><a href="#"> Aslam</a></p>
+        </footer>
+
+    </div><!--/.fluid-container-->
+    <!--================================================== -->
+    
+</body>
+</html>
